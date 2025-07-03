@@ -285,7 +285,7 @@
   color: var(--text-color);
   background-color: var(--background-color);
   border: 2px solid var(--text-color);
-  max-inline-size: 357px;
+  max-inline-size: 353px;
 }
 
 .dialog::backdrop {
@@ -294,24 +294,27 @@
 
 .dialog__container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
   padding: 30px;
 }
 
 .dialog__icon {
   inline-size: 39px;
   block-size: 39px;
+  flex-shrink: 0;
 }
 
 .dialog__text {
   font-family: var(--accent-font);
   font-size: var(--accent-font-size);
   line-height: 1.5;
-  text-align: center;
   text-transform: uppercase;
-  max-inline-size: 234px;
+}
+
+.dialog form {
+  padding: 0 30px 30px;
 }
 
 .dialog__button {
