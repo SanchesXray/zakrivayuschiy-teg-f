@@ -1,0 +1,1 @@
+git@github.com:SanchesXray/zakrivayuschiy-teg-f.git

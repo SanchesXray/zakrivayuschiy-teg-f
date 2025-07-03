@@ -19,24 +19,16 @@
   background-image: var(--background-image);
   background-size: cover;
   background-attachment: fixed;
-  /* font-style: normal; */
-    /* padding-block: 102px 105px; */
 }
 
 .header {
   inline-size: var(--section-width);
   font-family: var(--accent-font);
   padding: 100px 0;
-  /* margin: 1123px 0; */
   align-items: center;
   text-align: center;
   display: grid;
-  /* gap: 128px; */
   flex-direction: column;
-  /* margin: auto; */
-      /* padding-block: 116px 105px; */
-      /* padding-block-end: 21px; */
-  /* padding-block-start: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem); */
 }
 
 .container {
@@ -57,11 +49,10 @@
 }
 
 .header__item {
-  background-color: #fff;
+  background-color: var(--background-color);
   min-height: 327px;
-  border: 2px solid #000;
+  border: 2px solid var(--text-color);
   padding: 128px 0;
-  /* gap: 1.25rem; */
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -103,6 +94,7 @@
   object-position: center;
 }
 
+/* Водяной знак */
 .watermark {
   position: absolute;
   inset-inline-end: 25px;
@@ -117,23 +109,21 @@
   z-index: 1;
 }
 
-@supports (
-  (text-stroke: 1px var(--stroke-color)) or
-    (-webkit-text-stroke: 1px var(--stroke-color))
-) {
-  .watermark {
-    text-shadow: none;
-    -webkit-text-stroke: 1px var(--stroke-color);
-    text-stroke: 1px var(--stroke-color);
-  }
-}
-
-/* @supports (-webkit-text-stroke: 1px var(--stroke-color) {
-  .watermark {
-    text-shadow: none;
-    -webkit-text-stroke: 1px var(--stroke-color);
-  }
+/* .waterm4ark {
+  position: absolute;
+  inset-inline-end: 25px;
+  inset-block-start: 25px;
+  font-family: var(--accent-font);
+  font-weight: var(--main-font-weight);
+  font-size: var(--accent-font-size);
+  color: var(--text-color);
+  -webkit-text-stroke: var(--text-stroke);
+  text-stroke: var(--text-stroke);
+  mix-blend-mode: hard-light;
+  opacity: 0.9;
+  z-index: 1;
 } */
+
 
 .card__content {
   display: flex;
@@ -141,6 +131,7 @@
   gap: 27px;
   padding: 25px;
 }
+
 @supports (
   (text-stroke: 1px var(--background-color)) or
     (-webkit-text-stroke: 1px var(--background-color))
@@ -152,7 +143,6 @@
     right: 25px;
     font-size: var(--accent-font-size);
     font-family: var(--accent-font);
-    
     color: var(--text-color);
     text-stroke: 1px var(--background-color);
     -webkit-text-stroke: 1px var(--background-color);
@@ -161,8 +151,6 @@
     opacity: 0.5;
   }
 }
-
-
 
 .card__text {
   font-size: var(--main-font-size);
@@ -177,21 +165,14 @@
 }
 
 .card__icon-button {
+  display: flex;
   inline-size: 39px;
   block-size: 36px;
   padding: 0;
-  background: none;
-  border: 2px solid transparent;
-  transition: border-color 0.3s ease;
-}
-
-
-.card__icon-button {
-  display: flex;
   border: 2px solid transparent;
   background-color: transparent;
-  transition: border 0.3s ease;
-  padding: 0;
+  transition: border-color 0.3s ease;
+  background-color: transparent;
 }
 
 .card__icon-button:focus {
@@ -200,17 +181,16 @@
 
 .card__icon-button:focus-visible {
   border: 2px solid currentColor;
-} 
+}
 
-/* ================ */
-
+/* ======Кнопки======= */
 .button {
   position: relative;
   background-color: var(--background-color);
   border: 2px solid var(--text-color);
   overflow: hidden;
   transition: box-shadow 0.3s ease;
-  padding: 10px 0;
+  padding: 8.4px 0;
   min-width: 130px;
   cursor: pointer;
   text-align: center;
@@ -224,11 +204,6 @@
   font-family: var(--accent-font);
   mix-blend-mode: difference;
 }
-
-/* button:hover::before {
-  transform: scaleX(1);
-  width: 100%;
-} */
 
 .button::before {
   content: "";
@@ -250,17 +225,6 @@
 .button:focus-visible {
   box-shadow: 2px 2px var(--text-color);
   outline: none;
-}
-
-.button::before {
-  content: "";
-  position: absolute;
-  background-color: var(--button-color);
-  inset: 0;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.5s ease-in-out;
-  mix-blend-mode: difference;
 }
 
 .filter-one {
@@ -294,7 +258,6 @@
 .filter-eight {
   filter: hue-rotate(65deg);
 }
-
 
 .footer {
   display: flex;
@@ -370,4 +333,8 @@
   .watermark {
     right: 13px;
   }
+
+  .header__item {
+    padding: 100px 0; 
+}
 }
