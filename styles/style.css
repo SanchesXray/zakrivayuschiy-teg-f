@@ -124,7 +124,6 @@
   z-index: 1;
 } */
 
-
 .card__content {
   display: flex;
   flex-direction: column;
@@ -170,7 +169,6 @@
   block-size: 36px;
   padding: 0;
   border: 2px solid transparent;
-  background-color: transparent;
   transition: border-color 0.3s ease;
   background-color: transparent;
 }
@@ -335,6 +333,6 @@
   }
 
   .header__item {
-    padding: 100px 0; 
-}
+    padding: 100px 0;
+  }
 }
