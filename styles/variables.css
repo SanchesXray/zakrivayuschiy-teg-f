@@ -7,7 +7,7 @@
 
   /* Насыщенность */
   --main-font-weight: 400;
-  --title-font-weight: 785;
+  --title-font-weight: 700;
 
   /* Цвета */
   --text-color: #000;
@@ -31,7 +31,5 @@
   --section-width: clamp(23.438rem, 16.285rem + 30.516vw, 43.75rem);
   --content-width: clamp(23.188rem, 15.625rem + 32.422vw, 43.5rem);
 
-  /* Эффекты */
-  --text-stroke: 1px var(--background-color);
  }
- 
+  

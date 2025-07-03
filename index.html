@@ -15,11 +15,9 @@
   </head>
 
   <body class="page">
-    <header class="header container">
-      <div class="header__item">
-        <span class="header__title">&lt;/HTML&gt;</span>
-        <h1 class="header__text">закрывающий тег</h1>
-      </div>
+    <header class="header">
+      <span class="header__title">&lt;/HTML&gt;</span>
+      <h1 class="header__text">закрывающий тег</h1>
     </header>
 
     <main class="main container">
@@ -30,14 +28,18 @@
             Фритрек и нулевой спринт: Подготовка к работе
           </h2>
           <div class="card__image">
-            <img
-              class="filter-one"
-              src="./images/image.png"
-              loading="lazy"
-              alt="Фургон с хотдогами мультяшный"
-            />
-            <span class="watermark" aria-hidden="true">&lt;/HTML&gt;</span>
+            <div class="image-wrapper">
+              <img
+                class="effect--glow"
+                src="./images/image.png"
+                loading="lazy"
+                alt="Светящийся мультяшный фургон с хот-догами, как неоновая вывеска"
+                onerror="this.classList.add('error')"
+              />
+              <span class="watermark" aria-hidden="true">&lt;/HTML&gt;</span>
+            </div>
           </div>
+
           <div class="card__content">
             <p class="card__text">
               Это было самое начало пути. На этом этапе важно было проникнуться
@@ -91,13 +93,16 @@
         <article class="card">
           <h2 class="card__title">1 спринт: Я — чистый лист</h2>
           <div class="card__image">
-            <img
-              class="filter-two"
-              src="./images/image.png"
-              loading="lazy"
-              alt="Фургон с хотдогами мультяшный"
-            />
-            <span class="watermark" aria-hidden="true">&lt;/HTML&gt;</span>
+            <div class="image-wrapper">
+              <img
+                class="effect--x-ray"
+                src="./images/image.png"
+                loading="lazy"
+                alt="Фургон с хот-догами в рентгеновском стиле, будто из научной фантастики"
+                onerror="this.classList.add('error')"
+              />
+              <span class="watermark" aria-hidden="true">&lt;/HTML&gt;</span>
+            </div>
           </div>
           <div class="card__content">
             <p class="card__text">
@@ -154,13 +159,16 @@
         <article class="card">
           <h2 class="card__title">1 спринт: А если не получится?</h2>
           <div class="card__image">
-            <img
-              class="filter-three"
-              src="./images/image.png"
-              loading="lazy"
-              alt="Фургон с хотдогами мультяшный"
-            />
-            <span class="watermark" aria-hidden="true">&lt;CSS&gt;</span>
+            <div class="image-wrapper">
+              <img
+                class="effect--vintage"
+                src="./images/image.png"
+                loading="lazy"
+                alt="Старинный фургон с хот-догами, будто со страниц ретро-комикса"
+                onerror="this.classList.add('error')"
+              />
+              <span class="watermark" aria-hidden="true">&lt;CSS&gt;</span>
+            </div>
           </div>
           <div class="card__content">
             <p class="card__text">
@@ -169,8 +177,8 @@
               наоборот, могли вдохновиться успехами и поверить в себя.
             </p>
             <p class="card__text">
-              Рано ещё говорить: А если не получится, мы же только
-              начали..come on
+              Рано ещё говорить: А если не получится, мы же только начали..come
+              on
             </p>
             <div class="card__bottom">
               <button class="card__icon-button" type="button">
@@ -218,13 +226,16 @@
         <article class="card">
           <h2 class="card__title">2 спринт: Погоня за идеалом</h2>
           <div class="card__image">
-            <img
-              class="filter-four"
-              src="./images/image.png"
-              loading="lazy"
-              alt="Фургон с хотдогами мультяшный"
-            />
-            <span class="watermark" aria-hidden="true">&lt;desigions&gt;</span>
+            <div class="image-wrapper">
+              <img
+                class="effect--high-impact"
+                src="./images/image.png"
+                loading="lazy"
+                alt="Яркий фургон с хот-догами с гипер-контрастом, словно постер в стиле поп-арт"
+                onerror="this.classList.add('error')"
+              />
+              <span class="watermark" aria-hidden="true">&lt;desigions&gt;</span>
+            </div>
           </div>
           <div class="card__content">
             <p class="card__text">
@@ -283,13 +294,16 @@
         <article class="card">
           <h2 class="card__title">2 спринт: О тех, кто рядом</h2>
           <div class="card__image">
-            <img
-              class="filter-five"
-              src="./images/image.png"
-              loading="lazy"
-              alt="Фургон с хотдогами мультяшный"
-            />
-            <span class="watermark" aria-hidden="true">care</span>
+            <div class="image-wrapper">
+              <img
+                class="effect--ghost"
+                src="./images/image.png"
+                loading="lazy"
+                alt="Призрачный фургон с хот-догами, будто мираж в пустыне"
+                onerror="this.classList.add('error')"
+              />
+              <span class="watermark" aria-hidden="true">care</span>
+            </div>
           </div>
           <div class="card__content">
             <p class="card__text">
@@ -349,13 +363,16 @@
         <article class="card">
           <h2 class="card__title">3 спринт: Обходные стратегии</h2>
           <div class="card__image">
-            <img
-              class="filter-six"
-              src="./images/image.png"
-              loading="lazy"
-              alt="Фургон с хотдогами мультяшный"
-            />
-            <span class="watermark" aria-hidden="true">&lt;support&gt;</span>
+            <div class="image-wrapper">
+              <img
+                class="effect--black-white"
+                src="./images/image.png"
+                loading="lazy"
+                alt="Фургон с хот-догами в чёрно-белых тонах, как классическое кино"
+                onerror="this.classList.add('error')"
+              />
+              <span class="watermark" aria-hidden="true">&lt;support&gt;</span>
+            </div>
           </div>
           <div class="card__content">
             <p class="card__text">
@@ -412,15 +429,16 @@
         <article class="card">
           <h2 class="card__title">3 спринт: Когда опускаются руки</h2>
           <div class="card__image">
-            <img
-              class="filter-seven"
-              src="./images/image.png"
-              loading="lazy"
-              alt="Фургон с хотдогами мультяшный"
-            />
-            <span class="watermark" aria-hidden="true"
-              >&lt;lifes-style: none;&gt;</span
-            >
+            <div class="image-wrapper">
+              <img
+                class="effect--soft-focus"
+                src="./images/image.png"
+                loading="lazy"
+                alt="Фургон с хот-догами в лёгкой дымке, будто утренний сон"
+                onerror="this.classList.add('error')"
+              />
+              <span class="watermark" aria-hidden="true">&lt;lifes-style: none;&gt;</span>
+            </div>
           </div>
           <div class="card__content">
             <p class="card__text">
@@ -480,13 +498,16 @@
         <article class="card">
           <h2 class="card__title">«Сейчас я здесь»</h2>
           <div class="card__image">
-            <img
-              class="filter-eight"
-              src="./images/image.png"
-              loading="lazy"
-              alt="Фургон с хотдогами мультяшный"
-            />
-            <span class="watermark" aria-hidden="true">&lt;experience&gt;</span>
+            <div class="image-wrapper">
+              <img
+                class="effect--color-shift"
+                src="./images/image.png"
+                loading="lazy"
+                alt="Фургон с хот-догами с психоделическими цветами, будто под кислотным фильтром"
+                onerror="this.classList.add('error')"
+              />
+              <span class="watermark" aria-hidden="true">&lt;experience&gt;</span>
+            </div>
           </div>
           <div class="card__content">
             <p class="card__text">
@@ -543,7 +564,7 @@
           </div>
         </article>
       </div>
-      <footer class="footer container">
+      <div class="save container">
         <button
           onclick="window.dialog.showModal()"
           aria-controls="dialog"
@@ -579,7 +600,7 @@
             </button>
           </form>
         </dialog>
-      </footer>
+      </div>
     </main>
 
     <script src="./scripts/like.js"></script>

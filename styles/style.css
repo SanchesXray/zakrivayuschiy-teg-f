@@ -4,7 +4,6 @@
 ✦ like-icon — для svg-иконки анимированного сердца
 ✦ card__like-button — для кнопки Like рядом с иконкой
 ✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
 ✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
@@ -21,24 +20,23 @@
   background-attachment: fixed;
 }
 
+/* Блок header */
 .header {
   inline-size: var(--section-width);
   font-family: var(--accent-font);
-  padding: 100px 0;
+  padding: 128px 0;
   align-items: center;
   text-align: center;
-  display: grid;
+  display: flex;
   flex-direction: column;
-}
-
-.container {
-  inline-size: var(--section-width);
-  margin: 0 auto;
+  justify-content: center;
+  background-color: var(--background-color);
+  border: 2px solid var(--text-color);
+  margin: 100px auto;
 }
 
 .header__title {
   font-size: var(--header-title);
-  text-align: center;
   margin-block-end: 20px;
 }
 
@@ -48,16 +46,10 @@
   font-size: var(--header-text);
 }
 
-.header__item {
-  background-color: var(--background-color);
-  min-height: 327px;
-  border: 2px solid var(--text-color);
-  padding: 128px 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+/* Стили для карточек */
+.container {
+  inline-size: var(--section-width);
+  margin: 0 auto;
 }
 
 .cards {
@@ -87,14 +79,25 @@
   overflow: hidden;
 }
 
+/* Обёртка для img + watermark */
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color);
+}
+
 .card__image img {
   inline-size: 100%;
   block-size: 100%;
   object-fit: cover;
   object-position: center;
+  display: block;
+  position: relative;
+  z-index: 1;  
 }
 
-/* Водяной знак */
+/* Водяной знак (лейбл) */
 .watermark {
   position: absolute;
   inset-inline-end: 25px;
@@ -102,53 +105,57 @@
   font-family: var(--accent-font);
   font-weight: var(--main-font-weight);
   font-size: var(--accent-font-size);
+  color: var(--text-color);
+  opacity: 0.5;
+  mix-blend-mode: hard-light;
+  z-index: 3;
   text-shadow: -1px 0 var(--stroke-color), 0 1px var(--stroke-color),
     1px 0 var(--stroke-color), 0 -1px var(--stroke-color);
-  mix-blend-mode: hard-light;
-  opacity: 0.9;
-  z-index: 1;
 }
 
-/* .waterm4ark {
-  position: absolute;
-  inset-inline-end: 25px;
-  inset-block-start: 25px;
-  font-family: var(--accent-font);
-  font-weight: var(--main-font-weight);
-  font-size: var(--accent-font-size);
-  color: var(--text-color);
-  -webkit-text-stroke: var(--text-stroke);
-  text-stroke: var(--text-stroke);
-  mix-blend-mode: hard-light;
+@supports (
+  (text-stroke: 1px var(--stroke-color)) or
+    (-webkit-text-stroke: 1px var(--stroke-color))
+) {
+  .watermark {
+    -webkit-text-stroke: 1px var(--stroke-color);
+    text-stroke: 1px var(--stroke-color);
+    text-shadow: none;
+  }
+}
+
+/* Стили при ошибке загрузки изображений */
+.card__image img.error ~ .watermark,
+.card__image img.error ~ .card__content,
+.card__image img.error {
+  filter: none !important;
+}
+
+.card__image img.error ~ .watermark {
   opacity: 0.9;
-  z-index: 1;
-} */
+  mix-blend-mode: normal;
+  transform: translateY(30px);
+  text-shadow: -1.5px 0 var(--stroke-color), 0 1.5px var(--stroke-color),
+    1.5px 0 var(--stroke-color), 0 -1.5px var(--stroke-color);
+}
+
+@supports (
+  (text-stroke: 1px var(--stroke-color)) or
+    (-webkit-text-stroke: 1px var(--stroke-color))
+) {
+  .card__image img.error ~ .watermark {
+    -webkit-text-stroke: 1px var(--stroke-color);
+    text-stroke: 1px var(--stroke-color);
+    text-shadow: none;
+  }
+}
 
 .card__content {
   display: flex;
   flex-direction: column;
   gap: 27px;
   padding: 25px;
-}
-
-@supports (
-  (text-stroke: 1px var(--background-color)) or
-    (-webkit-text-stroke: 1px var(--background-color))
-) {
-  .watermark {
-    position: absolute;
-    z-index: 1;
-    top: 25px;
-    right: 25px;
-    font-size: var(--accent-font-size);
-    font-family: var(--accent-font);
-    color: var(--text-color);
-    text-stroke: 1px var(--background-color);
-    -webkit-text-stroke: 1px var(--background-color);
-    text-shadow: none;
-    mix-blend-mode: hard-light;
-    opacity: 0.5;
-  }
+  border-top: 2px solid var(--text-color);
 }
 
 .card__text {
@@ -173,15 +180,12 @@
   background-color: transparent;
 }
 
-.card__icon-button:focus {
+.card__icon-button:focus-visible {
+  border: 2px solid currentColor;
   outline: none;
 }
 
-.card__icon-button:focus-visible {
-  border: 2px solid currentColor;
-}
-
-/* ======Кнопки======= */
+/* Стили кнопок */
 .button {
   position: relative;
   background-color: var(--background-color);
@@ -216,48 +220,46 @@
   transform: translateX(0);
 }
 
-.button:focus {
-  outline: none;
-}
-
 .button:focus-visible {
   box-shadow: 2px 2px var(--text-color);
   outline: none;
 }
 
-.filter-one {
+/* Эффекты фильтров */
+.effect--glow {
   filter: brightness(130%);
 }
 
-.filter-two {
+.effect--x-ray {
   filter: invert(80%) contrast(135%);
 }
 
-.filter-three {
+.effect--vintage {
   filter: saturate(200%) sepia(90%);
 }
 
-.filter-four {
+.effect--soft-focus {
   filter: blur(3px);
 }
 
-.filter-five {
+.effect--ghost {
   filter: opacity(0.58);
 }
 
-.filter-six {
+.effect--black-white {
   filter: grayscale(0.85);
 }
 
-.filter-seven {
+.effect--high-impact {
   filter: contrast(135) brightness(150%);
 }
 
-.filter-eight {
+.effect--color-shift {
   filter: hue-rotate(65deg);
 }
 
-.footer {
+/* Кнопка сохранения */
+.save {
   display: flex;
   justify-content: center;
   margin-block-end: 100px;
@@ -277,6 +279,7 @@
   mix-blend-mode: difference;
 }
 
+/* Диалоговое окно */
 .dialog {
   padding: 0;
   color: var(--text-color);
@@ -318,6 +321,7 @@
   border-block-start: 2px solid var(--text-color);
 }
 
+/* Медиа-запросы */
 @media (width <= 375px) {
   .button__save {
     flex-direction: column;
@@ -332,7 +336,7 @@
     right: 13px;
   }
 
-  .header__item {
-    padding: 100px 0;
+  .header {
+    padding: 120px 0;
   }
 }
