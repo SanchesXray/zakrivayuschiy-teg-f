@@ -326,7 +326,7 @@
 }
 
 /* Медиа-запросы */
-@media (width <= 375px) {
+@media (max-width: 376px) {
   .button__save {
     flex-direction: column;
   }
